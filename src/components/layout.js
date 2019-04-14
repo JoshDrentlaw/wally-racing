@@ -10,11 +10,12 @@ import "../global.css"
 
 const Body = styled.div`
   display: grid;
-  template-grid-areas: 
+  grid-template-columns: 100px 1fr 100px;
+  grid-template-rows: auto auto auto;
+  grid-template-areas: 
     "header header header"
     ". content ."
-    ". content ."
-    "footer footer footer"
+    "footer footer footer";
 `
 
 const Layout = ({ children }) => (
@@ -30,7 +31,7 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <Body>
-        <Header siteTitle={data.site.siteMetadata.title} style={{ gridArea: `header` }} />
+        <Header />
         <main style={{ gridArea: `content` }}>{children}</main>
         <footer style={{ gridArea: `footer` }}></footer>
       </Body>

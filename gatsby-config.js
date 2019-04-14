@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Wally Pankratz Racing School`,
-    description: ``,
+    description: `Wally Pankratz Racing School is the premire `,
     author: `Josh Drentlaw`,
   },
   plugins: [
@@ -21,10 +21,10 @@ module.exports = {
         name: `gatsby-starter-default`,
         short_name: `starter`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#000`,
+        theme_color: `#000`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/wpFavicon.png`, // This path is relative to the root of the site.
       },
     },
     'gatsby-plugin-styled-components',
