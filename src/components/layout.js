@@ -9,6 +9,7 @@ import Header from "./header"
 import "../global.css"
 
 const Body = styled.div`
+  ${tw`font-sans`}
   display: grid;
   grid-template-columns: 100px 1fr 100px;
   grid-template-rows: auto auto auto;

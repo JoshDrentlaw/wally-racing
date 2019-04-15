@@ -1,14 +1,46 @@
 import React from "react"
 import { Link } from "gatsby"
 
+import styled from "styled-components"
+import tw from "tailwind.macro"
+
+const Nav = styled.nav`
+  height: 50px;
+  grid-area: header;
+`
+
+const LinkContainer = styled.div`
+  ${tw`inline-flex w-1/5 float-right h-full`}
+  align-items: center;
+  justify-content: space-around;
+
+  .active {
+    ${tw`font-bold`}
+  }
+
+  & a {
+    ${tw`text-black no-underline`}
+
+    &:focus {
+      ${tw`font-bold`}
+    }
+
+    &:hover {
+      ${tw`font-bold`}
+    }
+  }
+`
+
 const Header = () => (
-  <nav className="py-2" style={{ gridArea: `header`, color: `black` }}>
+  <Nav>
     <img src="https://res.cloudinary.com/josh-drentlaw-web-development/image/upload/c_scale,co_rgb:000000,e_colorize:100,h_50/v1555171073/Wally%20Pankratz%20Racing%20School/WallyPankratz.png" alt="Wally Pankratz signature" />
-    <Link to="/">Home</Link>
-    <Link to="/about/">About</Link>
-    <Link to="/stats/">Stats</Link>
-    <Link to="/pricing/">Pricing</Link>
-  </nav>
+    <LinkContainer>
+      <Link to="/" activeClassName="active">Home</Link>
+      <Link to="/about/" activeClassName="active">About</Link>
+      <Link to="/stats/" activeClassName="active">Stats</Link>
+      <Link to="/pricing/" activeClassName="active">Pricing</Link>
+    </LinkContainer>
+  </Nav>
 )
 
 export default Header
