@@ -24,7 +24,7 @@ module.exports = {
         background_color: `#000`,
         theme_color: `#000`,
         display: `minimal-ui`,
-        icon: `src/images/wpFavicon.png`, // This path is relative to the root of the site.
+        icon: `src/images/wpFavicon.PNG`, // This path is relative to the root of the site.
       },
     },
     'gatsby-plugin-styled-components',
@@ -32,5 +32,6 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
+    'gatsby-plugin-netlify',
   ],
 }
