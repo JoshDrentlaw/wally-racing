@@ -5,6 +5,8 @@ import styled from "styled-components"
 import tw from "tailwind.macro"
 
 const Nav = styled.nav`
+  ${tw`sticky bg-transparent z-50`}
+  top: 0;
   height: 50px;
   grid-area: header;
 `
@@ -19,7 +21,7 @@ const LinkContainer = styled.div`
   }
 
   & a {
-    ${tw`text-black no-underline`}
+    ${tw`text-black text-center no-underline p-2 w-1/4`}
 
     &:focus {
       ${tw`font-bold`}
@@ -33,7 +35,7 @@ const LinkContainer = styled.div`
 
 const Header = () => (
   <Nav>
-    <img src="https://res.cloudinary.com/josh-drentlaw-web-development/image/upload/c_scale,co_rgb:000000,e_colorize:100,h_50/v1555171073/Wally%20Pankratz%20Racing%20School/WallyPankratz.png" alt="Wally Pankratz signature" />
+    <img src="https://res.cloudinary.com/josh-drentlaw-web-development/image/upload/c_scale,co_rgb:000000,e_colorize:100,h_50/v1555171073/Wally%20Pankratz%20Racing%20School/WallyPankratz.webp" alt="Wally Pankratz signature" />
     <LinkContainer>
       <Link to="/" activeClassName="active">Home</Link>
       <Link to="/about/" activeClassName="active">About</Link>
