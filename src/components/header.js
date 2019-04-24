@@ -12,16 +12,14 @@ const Nav = styled.nav`
 `
 
 const LinkContainer = styled.div`
-  ${tw`inline-flex w-1/5 float-right h-full`}
-  align-items: center;
-  justify-content: space-around;
+  ${tw`relative inline-flex flex-col flex-grows items-center float-right lg:w-1/5 lg:flex-row`}
 
   .active {
     ${tw`font-bold`}
   }
 
   & a {
-    ${tw`text-black text-center no-underline p-2 w-1/4`}
+    ${tw`text-black text-center no-underline p-2 lg:sw-1/4`}
 
     &:focus {
       ${tw`font-bold`}
@@ -32,6 +30,8 @@ const LinkContainer = styled.div`
     }
   }
 `
+
+
 
 const Header = () => (
   <Nav>
