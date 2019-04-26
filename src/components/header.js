@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useState } from "react"
 import { Link } from "gatsby"
 
 import styled from "styled-components"
@@ -31,31 +31,32 @@ const LinkContainer = styled.div`
   }
 `
 
-const Header = () => {
-  useEffect(() => {
-    const button = document.getElementById('hamburger');
-    toggle(button.classList);
-  })
+const Menu = styled.div`
+  ${tw`flex flex-col items-end pr-2 bg-black lg:bg-transparent lg:w-1/4 lg:flex-row lg:justify-around`}
 
-  function toggle(el) {
-    console.log(el);
-  }
+  visibility: ${props => props.visible ? 'visible' : 'hidden'};
+  transform: ${props => props.visible ? `translateY(0%)` : `translateY(-100%)` };
+  transition: transform 200ms ease-out, visibility 200ms ease-out;
+`
+
+const Header = () => {
+  const [visible, setVisible] = useState('false');
 
   return (
     <Nav>
       <img src="https://res.cloudinary.com/josh-drentlaw-web-development/image/upload/c_scale,h_50,e_outline:1/v1555171073/Wally%20Pankratz%20Racing%20School/WallyPankratz.webp" alt="Wally Pankratz signature" className="mr-auto" />
       <div className="block mr-4 lg:hidden">
-        <button id="hamburger" className="flex items-center px-3 py-2 border rounded border-black text-black">
+        <button id="hamburger" className="flex items-center px-3 py-2 border rounded border-black text-black" onClick={() => {setVisible(!visible)}}>
           <svg className="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" /></svg>
         </button>
       </div>
       <LinkContainer>
-        <div className="flex flex-col items-end pr-2 bg-black lg:bg-transparent lg:w-1/4 lg:flex-row lg:justify-around">
+        <Menu visible={visible}>
           <Link to="/" activeClassName="active">Home</Link>
           <Link to="/about/" activeClassName="active">About</Link>
           <Link to="/stats/" activeClassName="active">Stats</Link>
           <Link to="/pricing/" activeClassName="active">Pricing</Link>
-        </div>
+        </Menu>
       </LinkContainer>
     </Nav>
   )
