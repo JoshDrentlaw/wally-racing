@@ -34,7 +34,7 @@ const LinkContainer = styled.div`
 const Header = () => {
   useEffect(() => {
     const button = document.getElementById('hamburger');
-    toggle(button);
+    toggle(button.classList);
   })
 
   function toggle(el) {
