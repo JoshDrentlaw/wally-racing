@@ -4,8 +4,7 @@ import styled from "styled-components"
 import tw from "tailwind.macro"
 
 const Img = styled.img`
-    ${tw`h-screen w-full`}
-    grid-area: 1 / 1 / 2 / -1;
+    ${tw`md:h-screen w-full`}
 `
 
 const Hero = () => (
