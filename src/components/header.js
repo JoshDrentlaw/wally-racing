@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { Link } from "gatsby"
+import is from 'is_js'
 
 import styled from "styled-components"
 import tw from "tailwind.macro"
@@ -36,6 +37,8 @@ const Menu = styled.div`
   }
 `
 
+const url = "https://res.cloudinary.com/josh-drentlaw-web-development/image/upload/c_scale,h_50,e_outline:1/v1555171073/Wally%20Pankratz%20Racing%20School/WallyPankratz";
+
 const Header = () => {
   const [visible, setVisible] = useState(false);
 
@@ -47,7 +50,7 @@ const Header = () => {
 
   return (
     <Nav>
-      <img src="https://res.cloudinary.com/josh-drentlaw-web-development/image/upload/c_scale,h_50,e_outline:1/v1555171073/Wally%20Pankratz%20Racing%20School/WallyPankratz.webp" alt="Wally Pankratz signature" className="h-full ml-3" />
+      <img src={url + (is.safari() ? '.png' : '.webp')} alt="Wally Pankratz signature" className="h-full ml-3" />
       <div className="block mr-3 md:hidden">
         <button id="hamburger" className="flex items-center px-3 py-2 border rounded border-white text-white" onClick={() => {setVisible(!visible)}}>
           <svg className="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" /></svg>
