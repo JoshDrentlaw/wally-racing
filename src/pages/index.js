@@ -8,6 +8,7 @@ import SEO from "../components/seo"
 
 const H1 = styled.h1`
   ${tw`text-center text-5xl font-light my-6`}
+  grid-column: 2 / 5
 `
 
 const P = styled.p`

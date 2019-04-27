@@ -10,7 +10,7 @@ import Hero from './hero'
 import "../global.css"
 
 const Body = styled.div`
-  ${tw`font-sans`}
+  ${tw`font-sans z-50`}
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
   grid-template-rows: auto auto auto;
