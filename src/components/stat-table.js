@@ -19,24 +19,25 @@ const Table = styled.table`
     }
 `
 
-const HeaderRow = styled.tr`
+const Header = styled.tr`
     ${tw`bg-black text-white`}
 
     th {
-        ${tw`p-4 font-black`}
+        ${tw`p-4`}
     }
 `
 
 export default function StatTable() {
+
     return (
         <Table>
-            <HeaderRow>
+            <Header>
                 <th>Racer</th>
                 <th>Track</th>
                 <th>Time</th>
                 <th>Item 3</th>
                 <th>Item 4</th>
-            </HeaderRow>
+            </Header>
             <tr>
                 <td>Mike Leach</td>
                 <td>San Bernardino</td>

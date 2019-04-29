@@ -36,13 +36,31 @@ const IndexPage = () => (
       <h2 className="mt-8 mb-4 text-center text-3xl font-thin">Learn about our pricing</h2>
       <Cards>
         <Card
-          tier="Beginner"
+          header="Beginner Tier"
+          items={[
+            'item 1',
+            'item 2',
+            'item 3',
+          ]}
+          button="Learn More"
         />
         <Card
-          tier="Intermediate"
+          header="Intermediate Tier"
+          items={[
+            'item 1',
+            'item 2',
+            'item 3',
+          ]}
+          button="Learn More"
         />
         <Card
-          tier="Advanced"
+          header="Advanced Tier"
+          items={[
+            'item 1',
+            'item 2',
+            'item 3',
+          ]}
+          button="Learn More"
         />
       </Cards>
     </div>
