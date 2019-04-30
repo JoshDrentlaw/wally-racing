@@ -12,7 +12,7 @@ const Nav = styled.nav`
 `
 
 const Menu = styled.div`
-  ${tw`relative w-full bg-black flex flex-col flex-grow items-end lg:flex lg:items-center lg:justify-end lg:flex-row lg:w-1/4`}
+  ${tw`w-full bg-black flex flex-col flex-grow items-end lg:flex lg:items-center lg:justify-end lg:flex-row lg:w-1/4`}
 
   z-index: -1;
 
