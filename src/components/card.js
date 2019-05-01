@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { Link } from 'gatsby'
+
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
 
@@ -15,7 +17,9 @@ const Body = styled.div`
     ${tw`pb-4 px-4 text-center`}
 `
 
-const Footer = styled.footer``
+const Footer = styled.footer`
+    ${tw`text-center p-4`}
+`
 
 const Card = (props) => {
     const listItems = props.items.map((item, index) =>
@@ -31,13 +35,17 @@ const Card = (props) => {
                 <ul className="list-reset mb-4">
                     {listItems}
                 </ul>
-                {
-                    (props.button === 'none') ?
-                    null :
-                    <button className="rounded border-black border-2 p-3">{props.button}</button>
-                }
             </Body>
-            <Footer></Footer>
+            {
+                (props.button === 'none') ?
+                null :
+                <Footer>
+                    <Link
+                        to={props.link}
+                        className="rounded border-black border-2 p-3"
+                    >{props.button}</Link>
+                </Footer>
+            }
         </Container>
     )
 }

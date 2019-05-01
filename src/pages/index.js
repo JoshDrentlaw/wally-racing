@@ -48,6 +48,7 @@ const IndexPage = () => (
               'item 3',
             ]}
             button="Learn More"
+            link="/pricing/#beginner"
           />
           <Card
             header="Intermediate Tier"
@@ -57,6 +58,7 @@ const IndexPage = () => (
               'item 3',
             ]}
             button="Learn More"
+            link="/pricing/#intermediate"
           />
           <Card
             header="Advanced Tier"
@@ -66,6 +68,7 @@ const IndexPage = () => (
               'item 3',
             ]}
             button="Learn More"
+            link="/pricing/#advanced"
           />
         </Cards>
       </Section>
