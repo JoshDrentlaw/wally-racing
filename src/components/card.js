@@ -6,15 +6,15 @@ import styled from 'styled-components'
 import tw from 'tailwind.macro'
 
 const Container = styled.div`
-    ${tw`md:w-1/3 md:mx-2 md:mb-0 mx-0 mb-4 rounded overflow-hidden shadow-lg`}
+    ${tw`md:w-1/3 md:mx-2 md:mb-0 mx-0 mb-4 p-4 rounded overflow-hidden shadow-lg`}
 `
 
 const Head = styled.h2`
-    ${tw`text-center font-thin py-4`}
+    ${tw`text-center font-thin mb-4`}
 `
 
 const Body = styled.div`
-    ${tw`pb-4 px-4 text-center`}
+    ${tw`px-4 text-center`}
 `
 
 const Footer = styled.footer`
@@ -32,7 +32,7 @@ const Card = (props) => {
         <Container>
             <Head>{props.header}</Head>
             <Body>
-                <ul className="list-reset mb-4">
+                <ul className="list-reset">
                     {listItems}
                 </ul>
             </Body>
@@ -40,10 +40,13 @@ const Card = (props) => {
                 (props.button === 'none') ?
                 null :
                 <Footer>
-                    <Link
-                        to={props.link}
-                        className="rounded border-black border-2 p-3"
-                    >{props.button}</Link>
+                    <button className="rounded border-black border-2 p-3 hover:bg-black hover:text-white">
+                        <Link
+                            className="text-black no-underline"
+                            to={props.link}
+                        >{props.button}</Link>
+                    </button>
+                    
                 </Footer>
             }
         </Container>
