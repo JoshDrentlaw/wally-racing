@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import { Link } from "gatsby"
 import is from 'is_js'
 
@@ -23,30 +23,24 @@ const Menu = styled.div`
   .active {
     ${tw`font-bold`}
   }
+`
 
-  & a {
-    ${tw`text-white text-center no-underline p-3`}
+const A = styled(Link)`
+  ${tw`text-white text-center no-underline p-3`}
 
-    &:focus {
-      ${tw`font-bold`}
-    }
+  &:focus {
+    ${tw`font-bold`}
+  }
 
-    &:hover {
-      ${tw`font-bold`}
-    }
+  &:hover {
+    ${tw`font-bold`}
   }
 `
 
 const url = "https://res.cloudinary.com/josh-drentlaw-web-development/image/upload/c_scale,h_50,e_outline:1/v1555171073/Wally%20Pankratz%20Racing%20School/WallyPankratz";
 
 const Header = () => {
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    if (typeof window !== 'undefined' && window.innerWidth >= 768) {
-      setVisible(true);
-    }
-  })
+  const [visible, setVisible] = useState(((is.not.mobile) ? true : false));
 
   return (
     <Nav>
@@ -57,10 +51,10 @@ const Header = () => {
         </button>
       </div>
       <Menu visible={visible}>
-        <Link to="/" activeClassName="active">Home</Link>
-        <Link to="/about/" activeClassName="active">About</Link>
-        <Link to="/stats/" activeClassName="active">Stats</Link>
-        <Link to="/pricing/" activeClassName="active">Pricing</Link>
+        <A to="/" activeClassName="active">Home</A>
+        <A to="/about/" activeClassName="active">About</A>
+        <A to="/stats/" activeClassName="active">Stats</A>
+        <A to="/pricing/" activeClassName="active">Pricing</A>
       </Menu>
     </Nav>
   )
