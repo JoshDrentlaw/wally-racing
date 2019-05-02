@@ -40,9 +40,9 @@ const Card = (props) => {
                 (props.button === 'none') ?
                 null :
                 <Footer>
-                    <button className="rounded border-black border-2 p-3 hover:bg-black hover:text-white">
+                    <button className="group rounded border-black border-2 p-3 hover:bg-black">
                         <Link
-                            className="text-black no-underline"
+                            className="text-black no-underline group-hover:text-white"
                             to={props.link}
                         >{props.button}</Link>
                     </button>
