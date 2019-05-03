@@ -2,6 +2,7 @@ import React from "react"
 
 import Hero from '../components/hero'
 import Card from '../components/card'
+import Contact from '../components/contact'
 
 import styled from "styled-components"
 import tw from "tailwind.macro"
@@ -75,7 +76,7 @@ const IndexPage = () => (
       
       <Section>
         <h2 className="mt-8 mb-4 text-center text-3xl font-thin">Contact Us</h2>
-        <form></form>
+        <Contact />
       </Section>
     </div>
   </Layout>
