@@ -26,12 +26,18 @@ const Input = styled.input`
     }
 
     &:focus + label, &:not(:placeholder-shown) + label {
-        transform: translateY(-250%) scale(0.8);
+        transform: translateY(-270%) scale(0.7);
+        padding-left: 0.5rem;
+        transform-origin: left;
     }
 `
 
 const TextArea = styled.textarea`
     ${tw`w-3/4 mx-auto my-4 block border border-black rounded p-2 focus:outline-none`}
+
+    &:placeholder-shown {
+        transition: all 0.3s ease-out;
+    }
 `
 
 const Contact = (props) => {
@@ -39,14 +45,14 @@ const Contact = (props) => {
     return (
         <Form>
             <FormGroup>
-                <Input id="name" type="name" placeholder="Full Name" />
-                <Label for="name">Full Name</Label>
+                <Input id="name" type="name" placeholder="Full Name" required />
+                <Label htmlFor="name">Full Name</Label>
             </FormGroup>
             <FormGroup>
-                <Input id="email" type="email" placeholder="Email" />
-                <Label for="email">Email</Label>
+                <Input id="email" type="email" placeholder="Email" required />
+                <Label htmlFor="email">Email</Label>
             </FormGroup>
-            <TextArea id="message" type="message" placeholder="If you have any questions or comments, please leave them here." />
+            <TextArea id="message" rows="4" placeholder="If you have any questions or comments, please leave them here." />
             <button type="submit" className="mx-auto rounded border-black border-2 p-3 hover:bg-black hover:text-white">Submit</button>
         </Form>
     )
