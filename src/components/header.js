@@ -14,11 +14,11 @@ const Nav = styled.nav`
 const Menu = styled.div`
   z-index: -1;
 
+  ${tw`w-full bg-black flex flex-col items-end invisible lg:flex lg:items-center lg:justify-around lg:flex-row lg:w-1/5 lg:visible`}
+
   visibility: ${props => (props.visible && is.mobile()) ? 'visible' : (is.mobile() ? 'hidden' : 'visible')};
   transform: ${props => (props.visible && is.mobile()) ? `translateY(0%)` : (is.mobile() ? `translateY(-100%)` : null)};
   transition: transform 200ms ease-out, visibility 200ms ease-out;
-
-  ${tw`w-full bg-black flex flex-col items-end invisible lg:flex lg:items-center lg:justify-around lg:flex-row lg:w-1/5 lg:visible`}
 
   .active {
     ${tw`font-bold`}
