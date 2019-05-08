@@ -13,8 +13,6 @@ const Nav = styled.nav`
 
 const Menu = styled.div`
   z-index: -1;
-
-  visibility: ${props => (props.visible && is.mobile()) ? 'visible' : (is.mobile() ? 'hidden' : 'visible')};
   transform: ${props => (props.visible && is.mobile()) ? `translateY(0%)` : (is.mobile() ? `translateY(-100%)` : null)};
   transition: transform 200ms ease-out, visibility 200ms ease-out;
 
