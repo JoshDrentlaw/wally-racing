@@ -8,10 +8,10 @@ const Img = styled.img`
     ${tw`md:h-screen w-full`}
 `
 
-const url = "https://res.cloudinary.com/josh-drentlaw-web-development/image/upload/v1555381845/Wally%20Pankratz%20Racing%20School/shapeimage_1";
+const url = "https://res.cloudinary.com/josh-drentlaw-web-development/image/upload/v1555381845/Wally%20Pankratz%20Racing%20School/shapeimage_1" + (is.safari() ? '.png' : '.webp');
 
 const Hero = () => (
-    <Img src={url + (is.safari() ? '.png' : '.webp')} alt="Ford Focus Midget Car" />
+    <Img src={url} alt="Ford Focus Midget Car" />
 )
 
 export default Hero
