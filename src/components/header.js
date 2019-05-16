@@ -14,11 +14,9 @@ const Nav = styled.nav`
 const Menu = styled.div`
   ${tw`w-full bg-black flex flex-col items-end lg:flex lg:items-center lg:justify-around lg:flex-row lg:w-1/5`}
 
-  /* visibility: ${props => props.mobile ? `${props.visible ? 'visible' : 'hidden'}` : 'visible' }; */
-  visibility: ${props => props.visible ? 'visible' : 'hidden' };
+  visibility: ${props => props.mobile ? `${props.visible ? 'visible' : 'hidden'}` : 'visible' };
 
-  /* transform: ${props => props.mobile ? `${props.visible ? `translateY(0%)` : `translateY(-100%)`}` : `translateY(0%)`}; */
-  transform: ${props => props.mobile ? `translateY(0%)` : `translateY(-100%)`};
+  transform: ${props => props.mobile ? `${props.visible ? `translateY(0%)` : `translateY(-100%)`}` : `translateY(0%)`};
 
   transition: all 200ms ease-out;
 
@@ -39,21 +37,19 @@ const A = styled(Link)`
   }
 `
 
-const url = 'https://res.cloudinary.com/josh-drentlaw-web-development/image/upload/c_scale,h_50,e_outline:1/v1555171073/Wally%20Pankratz%20Racing%20School/WallyPankratz' + (is.safari() ? '.png' : '.webp');
+const url = 'https://res.cloudinary.com/josh-drentlaw-web-development/image/upload/c_scale,h_50,e_outline:1/v1555171073/Wally%20Pankratz%20Racing%20School/WallyPankratz' + (is.safari() ? '.jpeg' : '.webp');
+
+const mobile = is.mobile() ? true : false;
 
 const Header = () => {
-  const mobile = is.mobile() ? true : false;
-  const [visible, setVisibility] = useState(!mobile);
-
-  const toggleVisiblity = () => {
-    setVisibility(!visible);
-  }
+  const [visible, setVisibility] = useState(((visible === undefined) ? !mobile : visible));
+  console.log(visible);
 
   return (
     <Nav>
       <img src={url} alt="Wally Pankratz signature" className="h-full ml-3" />
       <div className="block mr-3 md:hidden">
-        <button id="hamburger" className="flex items-center px-3 py-2 border rounded border-white text-white" onClick={() => {toggleVisiblity()}}>
+        <button id="hamburger" className="flex items-center px-3 py-2 border rounded border-white text-white" onClick={() => setVisibility(!visible)}>
           <svg className="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" /></svg>
         </button>
       </div>
