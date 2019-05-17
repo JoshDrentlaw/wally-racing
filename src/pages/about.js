@@ -11,7 +11,7 @@ const Portrait = styled.div`
   ${tw`p-4 mt-4 mx-auto md:w-2/3 lg:w-1/2 border border-black rounded`}
 `
 
-const url = "https://res.cloudinary.com/josh-drentlaw-web-development/image/upload/v1555381845/Wally%20Pankratz%20Racing%20School/WallyTeaching" + (is.safari() ? '.jpeg' : '.webp');
+const url = "https://res.cloudinary.com/josh-drentlaw-web-development/image/upload/v1555381845/Wally%20Pankratz%20Racing%20School/WallyTeaching" + (is.safari() ? '.PNG' : '.webp');
 
 const About = () => (
   <Layout>

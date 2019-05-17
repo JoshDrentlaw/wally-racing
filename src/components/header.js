@@ -39,7 +39,7 @@ const A = styled(Link)`
   }
 `
 
-const url = 'https://res.cloudinary.com/josh-drentlaw-web-development/image/upload/c_scale,h_50,e_outline:1/v1555171073/Wally%20Pankratz%20Racing%20School/WallyPankratz' + (is.safari() ? '.jpeg' : '.webp');
+const url = 'https://res.cloudinary.com/josh-drentlaw-web-development/image/upload/c_scale,h_50,e_outline:1/v1555171073/Wally%20Pankratz%20Racing%20School/WallyPankratz' + (is.safari() ? '.PNG' : '.webp');
 
 const mobile = is.mobile() ? true : false;
 
