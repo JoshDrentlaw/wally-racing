@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import { Link } from "gatsby"
 import is from 'is_js'
 
@@ -12,7 +12,9 @@ const Nav = styled.nav`
 `
 
 const Menu = styled.div`
-  ${tw`w-full bg-black flex flex-col items-end lg:flex lg:items-center lg:justify-around lg:flex-row lg:w-1/5`}
+  ${props => console.log(`mobile: ${props.mobile} visible: ${props.visible}`)};
+
+  ${tw`w-full bg-black flex flex-col items-end lg:flex lg:items-center lg:justify-around lg:flex-row lg:w-1/5`};
 
   visibility: ${props => props.mobile ? `${props.visible ? 'visible' : 'hidden'}` : 'visible' };
 
@@ -22,7 +24,7 @@ const Menu = styled.div`
 
   .active {
     ${tw`font-bold`}
-  }
+  };
 `
 
 const A = styled(Link)`
@@ -41,19 +43,19 @@ const url = 'https://res.cloudinary.com/josh-drentlaw-web-development/image/uplo
 
 const mobile = is.mobile() ? true : false;
 
-const Header = () => {
-  const [visible, setVisibility] = useState(((visible === undefined) ? !mobile : visible));
+function Header() {
+  const [visible, setVisible] = useState(!mobile);
   console.log(visible);
 
   return (
     <Nav>
       <img src={url} alt="Wally Pankratz signature" className="h-full ml-3" />
       <div className="block mr-3 md:hidden">
-        <button id="hamburger" className="flex items-center px-3 py-2 border rounded border-white text-white" onClick={() => setVisibility(!visible)}>
+        <button id="hamburger" className="flex items-center px-3 py-2 border rounded border-white text-white" onClick={() => setVisible(!visible)}>
           <svg className="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" /></svg>
         </button>
       </div>
-      <Menu visibile={visible} mobile={mobile}>
+      <Menu className="menu" visible mobile>
         <A to="/" activeClassName="active">Home</A>
         <A to="/about/" activeClassName="active">About</A>
         <A to="/stats/" activeClassName="active">Stats</A>
