@@ -10,7 +10,7 @@ import tw from "tailwind.macro"
 ` */
 
 const Hero = (props) => (
-    <Img fixed={props.data} alt="Ford Focus Midget Car" />
+    <Img fluid={props.data} alt="Ford Focus Midget Car" />
 )
 
 export default Hero
