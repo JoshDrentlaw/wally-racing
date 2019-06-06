@@ -1,4 +1,5 @@
 import React from "react"
+import { graphql } from "gatsby"
 
 import Hero from '../components/hero'
 import Card from '../components/card'
@@ -26,10 +27,10 @@ const Cards = styled.section`
   ${tw`w-full flex md:flex-row flex-col justify-between`}
 `
 
-const IndexPage = () => (
+const IndexPage = ({ data }) => (
   <Layout>
     <SEO title="Home" keywords={[]} />
-    <Hero />
+    <Hero data={data.file.childImageSharp.fixed} />
     <div className="lg:w-4/5 mx-auto p-4">
       <Section>
         <H1>Welcome to the premire SoCal racing school.</H1>
@@ -81,5 +82,17 @@ const IndexPage = () => (
     </div>
   </Layout>
 )
+
+export const query = graphql`
+  query {
+    file(relativePath: { eq: "FordMidget.png"}) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid_noBase64
+        }
+      }
+    }
+  }
+`
 
 export default IndexPage

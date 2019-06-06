@@ -1,17 +1,16 @@
 import React from "react"
+import Img from 'gatsby-image'
 import is from 'is_js'
 
 import styled from "styled-components"
 import tw from "tailwind.macro"
 
-const Img = styled.img`
+/* const Img = styled.img`
     ${tw`md:h-screen w-full`}
-`
+` */
 
-const url = "https://res.cloudinary.com/josh-drentlaw-web-development/image/upload/v1555381845/Wally%20Pankratz%20Racing%20School/shapeimage_1" + (is.safari() ? '.PNG' : '.webp');
-
-const Hero = () => (
-    <Img src={url} alt="Ford Focus Midget Car" />
+const Hero = (props) => (
+    <Img fixed={props.data} alt="Ford Focus Midget Car" />
 )
 
 export default Hero
