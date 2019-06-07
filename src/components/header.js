@@ -7,13 +7,13 @@ import styled from "styled-components"
 import tw from "tailwind.macro"
 
 const Nav = styled.nav`
-  ${tw`sticky`}
+  ${tw`sticky z-10`}
   top: 0;
   height: 60px;
 `
 
 const Wrapper = styled.div`
-  ${tw`w-full flex items-center justify-between flex-wrap bg-black z-0`}
+  ${tw`w-full flex items-center justify-between flex-wrap bg-black`}
   height: 60px;
 `
 
@@ -27,7 +27,6 @@ const Menu = styled.div.attrs({
   visibility: ${props => props.visibility };
   transform: ${props => props.transform };
   transition: all 200ms ease-out;
-  z-index: ${props => props.mobile ? '-10' : '10'};
 
   .active {
     ${tw`font-bold`}

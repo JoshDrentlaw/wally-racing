@@ -9,7 +9,7 @@ import Header from "./header"
 import "../global.css"
 
 const Body = styled.div`
-  ${tw`font-sans z-0`}
+  ${tw`font-sans`}
 `
 
 const Layout = ({ children }) => (
