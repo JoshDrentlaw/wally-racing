@@ -26,7 +26,7 @@ const Layout = ({ children }) => (
     render={data => (
       <Body>
         <Header />
-        <main>{children}</main>
+        <main className="min-w-vw max-w-vw">{children}</main>
         <footer></footer>
       </Body>
     )}

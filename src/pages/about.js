@@ -9,13 +9,13 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const Portrait = styled.div`
-  ${tw`mt-4 mx-auto md:w-2/3 lg:w-1/2 border border-black rounded`}
+  ${tw`mt-4 mx-auto max-w-300 md:w-2/3 lg:w-1/2 border border-black rounded`}
 `
 
 const About = ({ data }) => (
   <Layout>
     <SEO title="About" />
-    <section className="text-center mx-auto md:w-2/3 lg:w-1/2">
+    <section className="py-4 px-8 text-center mx-auto md:w-2/3 lg:w-1/2">
       <h1 className="font-thin my-4">About Wally Prankatz</h1>
       <p>Wally Pankratz started racing in 1970. Over his long career he won four Championships with 114 Main Event wins and many awards including induction into the Belleville National Midget Hall of Fame and the Legends of Ascot.  In addition, Wally collaborated with Steve Smith Autosports to develop the book "Midget Chassis Technology" for Midget racers.  This Chassis set up book is dedicated to introducing the racer to Midget racing while teaching the finer points of the set-up and racing in this class.</p>
       <Portrait>
@@ -35,7 +35,7 @@ export const query = graphql`
   {
     file(relativePath: { eq: "WallyTeaching.jpg" }) {
       childImageSharp {
-        fluid {
+        fluid(maxWidth: 300) {
           ...GatsbyImageSharpFluid
         }
       }

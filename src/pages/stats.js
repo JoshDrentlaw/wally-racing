@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import is from 'is_js'
 
 import StatTable from '../components/stat-table'
 import Card from '../components/card'
@@ -50,7 +49,6 @@ const Stats = () => {
     const [racers, setRacers] = useState(stats)
 
     const buildCards = () => {
-        console.log(racers)
         const cards = racers.map((racer) => {
             return (
                 <Card
@@ -67,7 +65,7 @@ const Stats = () => {
         <Layout>
             <SEO title="Stats" keywords={[]} />
             <h1 className="text-5xl text-center font-thin mt-4 mb-8">Racing Stats</h1>
-            {(is.mobile() ?
+            {((typeof window !== 'undefined' && window.innerWidth <= 1024) ?
                 buildCards() :
                 <StatTable />
             )}
