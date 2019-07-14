@@ -16,10 +16,10 @@ const Wrapper = styled.div`
   height: 60px;
 `
 
-const Menu = styled.div.attrs({
-  visibility: props => (props.visible ? 'visible' : 'hidden'),
-  transform: props => (props.visible ? `translateY(0%)` : `translateY(-100%)`),
-})`
+const Menu = styled.div.attrs(props => ({
+  visibility: (props.visible ? 'visible' : 'hidden'),
+  transform: (props.visible ? `translateY(0%)` : `translateY(-100%)`),
+}))`
   ${tw`w-full block bg-black flex flex-col items-end lg:flex lg:items-center lg:justify-around lg:flex-row lg:w-1/5`};
   visibility: visible;
 

@@ -29,7 +29,17 @@ const Cards = styled.section`
 
 const IndexPage = ({ data }) => (
   <Layout>
-    <SEO title="Home" keywords={[]} />
+    <SEO title="Home" keywords={[
+      "wally",
+      "pankratz",
+      "wally pankratz",
+      "racing",
+      "school",
+      "racing school",
+      "wally pankratz racing school",
+      "socal",
+      "socal racing school"
+    ]} />
     <Hero className="" data={data.file.childImageSharp.fluid} />
     <div className="lg:w-4/5 mx-auto p-4">
       <Section>
@@ -84,8 +94,8 @@ const IndexPage = ({ data }) => (
 )
 
 export const query = graphql`
-  {
-    file(relativePath: { eq: "FordMidget.png" }) {
+  query {
+    file(relativePath: { eq: "FordMidget.jpg" }) {
       childImageSharp {
         fluid {
           ...GatsbyImageSharpFluid
