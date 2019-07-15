@@ -64,9 +64,6 @@ function Header({ data }) {
             </div>
             <Menu visible={visible}>
               <A to="/" activeClassName="active">Home</A>
-              <A to="/about/" activeClassName="active">About</A>
-              <A to="/stats/" activeClassName="active">Stats</A>
-              <A to="/pricing/" activeClassName="active">Pricing</A>
             </Menu>
           </Wrapper>
         </Nav>
