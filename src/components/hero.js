@@ -20,7 +20,6 @@ const HeadingWrapper = styled.div`
     justify-content: space-between;
     left: 0;
     line-height: 0.8;
-    mix-blend-mode: luminosity;
     padding: 1em;
     position: absolute;
     top: 60;

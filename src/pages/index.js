@@ -81,7 +81,7 @@ const IndexPage = ({ data }) => (
         </P>
       </Section>
 
-      <Section>
+      <Section style={{maxWidth: "640px", margin: "0 auto"}}>
         <VideoContainer>
           <iframe src="https://player.vimeo.com/video/347009430" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
           <p><a href="https://vimeo.com/347009430">Wally Racing // Teaser</a> from <a href="https://vimeo.com/kingmediaco">King Media Co</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
