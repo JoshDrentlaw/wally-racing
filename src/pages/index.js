@@ -52,16 +52,24 @@ const bookLink = "https://www.amazon.com/Quarter-Midget-Chassis-Technology-Steve
 
 const IndexPage = ({ data }) => (
   <Layout>
-    <SEO title="Home" keywords={[
+    <SEO title="Home | Wally Prankatz Racing School" keywords={[
       "wally",
       "pankratz",
       "wally pankratz",
       "racing",
       "school",
       "racing school",
+      "pankratz racing",
       "wally pankratz racing school",
       "socal",
-      "socal racing school"
+      "socal racing school",
+      "la racing",
+      "la racing school",
+      "la midget racecar",
+      "midget racecar",
+      "racecar school",
+      "midget racecar school",
+      "midget racecar school socal",
     ]} />
     <Hero data={data.muddy.childImageSharp.fluid} />
     <div className="lg:w-4/5 mx-auto p-4">
