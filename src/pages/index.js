@@ -91,7 +91,7 @@ const IndexPage = ({ data }) => (
 
       <Section style={{maxWidth: "640px", margin: "0 auto"}}>
         <VideoContainer>
-          <iframe src="https://player.vimeo.com/video/347009430" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+          <iframe src="https://player.vimeo.com/video/353074662" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
           <p><a href="https://vimeo.com/353074662">Wally Pankratz Racing School</a> from <a href="https://vimeo.com/kingmediaco">King Media Co</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
         </VideoContainer>
       </Section>
