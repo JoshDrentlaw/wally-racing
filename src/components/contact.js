@@ -47,14 +47,14 @@ const Contact = (props) => {
             <input type="hidden" name="bot-field" />
             <input type="hidden" name="form-name" value="contact" />
             <FormGroup>
-                <Input id="name" type="name" placeholder="Full Name" required />
+                <Input id="name" name="full_name" type="name" placeholder="Full Name" required />
                 <Label htmlFor="name">Full Name</Label>
             </FormGroup>
             <FormGroup>
-                <Input id="email" type="email" placeholder="Email" required />
+                <Input id="email" name="email" type="email" placeholder="Email" required />
                 <Label htmlFor="email">Email</Label>
             </FormGroup>
-            <TextArea id="message" rows="4" placeholder="If you have any questions or comments, please leave them here." />
+            <TextArea id="message" name="comments" rows="4" placeholder="If you have any questions or comments, please leave them here." />
             <button type="submit" className="mx-auto rounded border-black border-2 p-3 hover:bg-black hover:text-white">Submit</button>
         </Form>
     )
