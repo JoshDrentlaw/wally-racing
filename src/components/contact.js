@@ -43,7 +43,9 @@ const TextArea = styled.textarea`
 const Contact = (props) => {
 
     return (
-        <Form>
+        <Form method="post" data-netlify="true" data-netlify-honeypot="bot-field">
+            <input type="hidden" name="bot-field" />
+            <input type="hidden" name="form-name" value="contact" />
             <FormGroup>
                 <Input id="name" type="name" placeholder="Full Name" required />
                 <Label htmlFor="name">Full Name</Label>
