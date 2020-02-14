@@ -10,6 +10,18 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: 'gatsby-source-sanity',
+      options: {
+        projectId: 'alegnslt',
+        dataset: 'production',
+        // a token with read permissions is required
+        // if you have a private dataset
+        token: process.env.SANITY_TOKEN,
+        overlayDrafts: true,
+        watchMode: true
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
