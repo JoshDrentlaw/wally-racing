@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
+import BlockContent from '@sanity/block-content-to-react'
 
 // import Hero from '../components/hero'
 // import Card from '../components/card'
@@ -18,6 +19,20 @@ const Section = styled.section`
   align-items: center;
   display: flex;
   flex-direction: column;
+
+  p {
+    ${tw`text-xl my-4`}
+
+    text-align: ${props => props.align || "center"};
+  }
+
+  ul {
+    ${tw`text-xl my-4`}
+    text-align: left;
+    width: 40vw;
+    margin: 0 auto;
+    padding-left: 5vw;
+  }
 `
 
 const H1 = styled.h1`
@@ -48,7 +63,28 @@ const VideoContainer = styled.div`
     }
 `
 
-const bookLink = "https://www.amazon.com/dp/B00LFSE5RA/ref=cm_sw_em_r_mt_dp_U_WJmrEbN2WZHWR";
+const serializers = {
+  types: {
+    block (props) {
+      switch (props.node.style) {
+        case 'normal':
+          return <p>{props.children}</p>
+        case 'h1':
+          return <h1>{props.children}</h1>
+        case 'h2':
+          return <h2>{props.children}</h2>
+        case 'h3':
+          return <h3>{props.children}</h3>
+        case 'h4':
+          return <h4>{props.children}</h4>
+        case 'blockquote':
+          return <blockquote>{props.children}</blockquote>
+        default:
+          return <p>{props.children}</p>
+      }
+    }
+  }
+}
 
 const IndexPage = ({ data }) => (
   <Layout>
@@ -71,13 +107,13 @@ const IndexPage = ({ data }) => (
       "midget racecar school",
       "midget racecar school socal",
     ]} />
-    {/* <Hero data={data.muddy.childImageSharp.fluid} /> */}
     <div className="lg:w-4/5 mx-auto p-4">
       <Section>
-        <H1>Welcome to Wally Pankratz Racing School.</H1>
-        <P>Who is Wally Pankratz?</P>
-        <Img fixed={data.profile.childImageSharp.fixed} alt="Wally Pankratz at Ventura Raceway." />
-        <P>Wally Pankratz started racing in 1970. Over his long career he won four Championships with 114 Main Event wins and many awards including induction into the Belleville National Midget Hall of Fame and the Legends of Ascot.  In addition, Wally collaborated with Steve Smith Autosports to develop the book <a href={bookLink} target="_blank" rel="noopener noreferrer">"Midget Chassis Technology"</a> for Midget racers.  This Chassis set up book is dedicated to introducing the racer to Midget racing while teaching the finer points of the set-up and racing in this class.</P>
+        <H1>{data.sanityPage.title}</H1>
+        <P>{data.sanityPage.subHeading}</P>
+        <Img fixed={data.sanityPage.mainImage.asset.fixed} alt="Wally Pankratz at Ventura Raceway." />
+        <BlockContent blocks={data.sanityPage._rawBody} serializers={serializers} />
+        {/* <P>Wally Pankratz started racing in 1970. Over his long career he won four Championships with 114 Main Event wins and many awards including induction into the Belleville National Midget Hall of Fame and the Legends of Ascot.  In addition, Wally collaborated with Steve Smith Autosports to develop the book <a href={bookLink} target="_blank" rel="noopener noreferrer">"Midget Chassis Technology"</a> for Midget racers.  This Chassis set up book is dedicated to introducing the racer to Midget racing while teaching the finer points of the set-up and racing in this class.</P>
         <P>The Ford Focus Midget Course is designed for drivers who want to learn the skills essential for Short Track Oval racing. Students will work "One on One" with Wally to understand and master corner entrance, car rotation, throttle pick up points, unwinding of the car, smooth inputs of throttle, brakes and steering.</P>
         <P align="left">
           Also available:
@@ -86,12 +122,12 @@ const IndexPage = ({ data }) => (
             <li>Night Time Sessions</li>
             <li>Set-up Classes (Bring your own car and improve your set-up)</li>
           </ul>
-        </P>
+        </P> */}
       </Section>
 
       <Section style={{maxWidth: "640px", margin: "0 auto"}}>
         <VideoContainer>
-          <iframe src="https://player.vimeo.com/video/353074662" frameborder="0" allow="autoplay; fullscreen" title="Wally Pankratz Racing School" allowfullscreen></iframe>
+          <iframe src="https://player.vimeo.com/video/353074662" frameBorder="0" allow="autoplay; fullscreen" title="Wally Pankratz Racing School" allowFullScreen></iframe>
           <p><a href="https://vimeo.com/353074662">Wally Pankratz Racing School</a> from <a href="https://vimeo.com/kingmediaco">King Media Co</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
         </VideoContainer>
       </Section>
@@ -106,19 +142,17 @@ const IndexPage = ({ data }) => (
 
 export const query = graphql`
   query {
-    muddy: file(relativePath: { eq: "muddy.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1920, quality: 80) {
-          ...GatsbyImageSharpFluid_withWebp
+    sanityPage(page: {eq: "Home Page"}, _rawBody: {}) {
+      title
+      subHeading
+      mainImage {
+        asset {
+          fixed(width: 300) {
+            ...GatsbySanityImageFixed
+          }
         }
       }
-    }
-    profile: file(relativePath: { eq: "WallyProfile.jpg" }) {
-      childImageSharp {
-        fixed(width: 300, quality: 80) {
-          ...GatsbyImageSharpFixed_withWebp
-        }
-      }
+      _rawBody(resolveReferences: {maxDepth: 10})
     }
   }
 `
