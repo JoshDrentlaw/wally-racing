@@ -30,6 +30,21 @@ export default {
       name: 'body',
       title: 'Body',
       type: 'blockContent'
+    },
+    {
+      name: 'video',
+      title: 'Video URL',
+      type: 'string'
+    },
+    {
+      name: 'videoTitle',
+      title: 'Video Title (you won\'t see this, needed for the code)',
+      type: 'string'
+    },
+    {
+      name: 'contactNumber',
+      title: 'Contact Phone Number',
+      type: 'string'
     }
   ],
 
