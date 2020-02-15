@@ -148,7 +148,7 @@ const IndexPage = ({ data }) => (
 export const query = graphql`
     query {
         sanityHome {
-            title
+            heading
             subHeading
             mainImage {
                 asset {
