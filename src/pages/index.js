@@ -14,39 +14,48 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const Section = styled.section`
-  ${tw`mb-12`}
+    ${tw`mb-12`}
 
-  align-items: center;
-  display: flex;
-  flex-direction: column;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+`
 
-  p {
-    ${tw`text-xl my-4`}
-
-    text-align: ${props => props.align || "center"};
-  }
-
-  ul {
-    ${tw`text-xl my-4`}
-    text-align: left;
-    width: 40vw;
+const UlContainer = styled.div`
+    width: 80vw;
     margin: 0 auto;
-    padding-left: 5vw;
-  }
+
+    @media(min-width: 568px) {
+        width: 75vw;
+    }
+
+    @media(min-width: 768px) {
+        width: 65vw;
+    }
+
+    @media(min-width: 1024px) {
+        width: 40vw;
+    }
+
+    ul {
+        ${tw`text-xl my-4`}
+        text-align: left;
+        padding-left: 5vw;
+    }
 `
 
 const H1 = styled.h1`
-  ${tw`text-center text-5xl font-light my-4`}
+    ${tw`text-center text-5xl font-light my-4`}
 `
 
 const P = styled.p`
-  ${tw`text-xl my-4`}
+    ${tw`text-xl my-4`}
 
-  text-align: ${props => props.align || "center"};
+    text-align: ${props => props.align || "center"};
 `
 
 /* const Cards = styled.section`
-  ${tw`w-full flex md:flex-row flex-col justify-between`}
+    ${tw`w-full flex md:flex-row flex-col justify-between`}
 ` */
 
 const VideoContainer = styled.div`
@@ -64,80 +73,77 @@ const VideoContainer = styled.div`
 `
 
 const serializers = {
-  types: {
-    block (props) {
-      switch (props.node.style) {
-        case 'normal':
-          return <p>{props.children}</p>
-        case 'h1':
-          return <h1>{props.children}</h1>
-        case 'h2':
-          return <h2>{props.children}</h2>
-        case 'h3':
-          return <h3>{props.children}</h3>
-        case 'h4':
-          return <h4>{props.children}</h4>
-        case 'blockquote':
-          return <blockquote>{props.children}</blockquote>
-        default:
-          return <p>{props.children}</p>
-      }
+    types: {
+        block(props) {
+            switch (props.node.style) {
+                case 'normal':
+                    return <P>{props.children}</P>
+                case 'h1':
+                    return <H1>{props.children}</H1>
+                case 'h2':
+                    return <h2>{props.children}</h2>
+                case 'h3':
+                    return <h3>{props.children}</h3>
+                case 'h4':
+                    return <h4>{props.children}</h4>
+                case 'blockquote':
+                    return <blockquote>{props.children}</blockquote>
+                default:
+                    return <P>{props.children}</P>
+            }
+        }
+    },
+    list: function block(props) {
+        return (
+            <UlContainer>
+                <ul>{props.children}</ul>
+            </UlContainer>
+        )
     }
-  }
 }
 
 const IndexPage = ({ data }) => (
-  <Layout>
-    <SEO title="Home | Wally Prankatz Racing School" keywords={[
-      "wally",
-      "pankratz",
-      "wally pankratz",
-      "racing",
-      "school",
-      "racing school",
-      "pankratz racing",
-      "wally pankratz racing school",
-      "socal",
-      "socal racing school",
-      "la racing",
-      "la racing school",
-      "la midget racecar",
-      "midget racecar",
-      "racecar school",
-      "midget racecar school",
-      "midget racecar school socal",
-    ]} />
-    <div className="lg:w-4/5 mx-auto p-4">
-      <Section>
-        <H1>{data.sanityPage.title}</H1>
-        <P>{data.sanityPage.subHeading}</P>
-        <Img fixed={data.sanityPage.mainImage.asset.fixed} alt="Wally Pankratz at Ventura Raceway." />
-        <BlockContent blocks={data.sanityPage._rawBody} serializers={serializers} />
-        {/* <P>Wally Pankratz started racing in 1970. Over his long career he won four Championships with 114 Main Event wins and many awards including induction into the Belleville National Midget Hall of Fame and the Legends of Ascot.  In addition, Wally collaborated with Steve Smith Autosports to develop the book <a href={bookLink} target="_blank" rel="noopener noreferrer">"Midget Chassis Technology"</a> for Midget racers.  This Chassis set up book is dedicated to introducing the racer to Midget racing while teaching the finer points of the set-up and racing in this class.</P>
-        <P>The Ford Focus Midget Course is designed for drivers who want to learn the skills essential for Short Track Oval racing. Students will work "One on One" with Wally to understand and master corner entrance, car rotation, throttle pick up points, unwinding of the car, smooth inputs of throttle, brakes and steering.</P>
-        <P align="left">
-          Also available:
-          <ul>
-            <li>Corporate Promotions</li>
-            <li>Night Time Sessions</li>
-            <li>Set-up Classes (Bring your own car and improve your set-up)</li>
-          </ul>
-        </P> */}
-      </Section>
+    <Layout>
+        <SEO title="Home | Wally Prankatz Racing School" keywords={[
+            "wally",
+            "pankratz",
+            "wally pankratz",
+            "racing",
+            "school",
+            "racing school",
+            "pankratz racing",
+            "wally pankratz racing school",
+            "socal",
+            "socal racing school",
+            "la racing",
+            "la racing school",
+            "la midget racecar",
+            "midget racecar",
+            "racecar school",
+            "midget racecar school",
+            "midget racecar school socal",
+        ]} />
+        <div className="lg:w-4/5 mx-auto p-4">
+            <Section>
+                <H1>{data.sanityPage.title}</H1>
+                <P>{data.sanityPage.subHeading}</P>
+                <Img fixed={data.sanityPage.mainImage.asset.fixed} alt="Wally Pankratz at Ventura Raceway." />
+                <BlockContent blocks={data.sanityPage._rawBody} serializers={serializers} />
+            </Section>
 
-      <Section style={{maxWidth: "640px", margin: "0 auto"}}>
-        <VideoContainer>
-          <iframe src="https://player.vimeo.com/video/353074662" frameBorder="0" allow="autoplay; fullscreen" title="Wally Pankratz Racing School" allowFullScreen></iframe>
-          <p><a href="https://vimeo.com/353074662">Wally Pankratz Racing School</a> from <a href="https://vimeo.com/kingmediaco">King Media Co</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
-        </VideoContainer>
-      </Section>
-      
-      <Section>
-        <h2 className="mt-8 mb-4 text-center text-3xl font-thin">Contact Us<br />(714) 749-4817</h2>
-        <Contact />
-      </Section>
-    </div>
-  </Layout>
+            <Section style={{ maxWidth: "640px", margin: "0 auto" }}>
+                <VideoContainer>
+                    <iframe src="https://player.vimeo.com/video/353074662" frameBorder="0" allow="autoplay; fullscreen" title="Wally Pankratz Racing School" allowFullScreen></iframe>
+                </VideoContainer>
+                <p><a href="https://vimeo.com/353074662">Wally Pankratz Racing School</a> from <a href="https://vimeo.com/kingmediaco">King Media Co</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+            </Section>
+
+            <Section>
+                <h2 className="mt-8 mb-4 text-center text-3xl font-thin">Contact Us<br />(714) 749-4817</h2>
+                <Contact />
+            </Section>
+        </div>
+    </Layout>
 )
 
 export const query = graphql`
