@@ -125,20 +125,20 @@ const IndexPage = ({ data }) => (
         ]} />
         <div className="lg:w-4/5 mx-auto p-4">
             <Section>
-                <H1>{data.sanityPage.title}</H1>
-                <P>{data.sanityPage.subHeading}</P>
-                <Img fixed={data.sanityPage.mainImage.asset.fixed} alt="Wally Pankratz at Ventura Raceway." />
-                <BlockContent blocks={data.sanityPage._rawBody} serializers={serializers} />
+                <H1>{data.sanityHome.heading}</H1>
+                <P>{data.sanityHome.subHeading}</P>
+                <Img fixed={data.sanityHome.mainImage.asset.fixed} alt="Wally Pankratz at Ventura Raceway." />
+                <BlockContent blocks={data.sanityHome._rawBody} serializers={serializers} />
             </Section>
 
             <Section style={{ maxWidth: "640px", margin: "0 auto" }}>
                 <VideoContainer>
-                    <iframe src={data.sanityPage.video} frameBorder="0" allow="autoplay; fullscreen" title={data.sanityPage.videoTitle} allowFullScreen></iframe>
+                    <iframe src={data.sanityHome.video} frameBorder="0" allow="autoplay; fullscreen" title={data.sanityHome.videoTitle} allowFullScreen></iframe>
                 </VideoContainer>
             </Section>
 
             <Section>
-                <h2 className="mt-8 mb-4 text-center text-3xl font-thin">Contact Us<br />{data.sanityPage.contactNumber}</h2>
+                <h2 className="mt-8 mb-4 text-center text-3xl font-thin">Contact Us<br />{data.sanityHome.contactNumber}</h2>
                 <Contact />
             </Section>
         </div>
@@ -147,7 +147,7 @@ const IndexPage = ({ data }) => (
 
 export const query = graphql`
     query {
-        sanityPage(page: {eq: "Home Page"}) {
+        sanityHome {
             title
             subHeading
             mainImage {

@@ -1,16 +1,11 @@
 export default {
-  name: 'page',
-  title: 'Page',
+  name: 'home',
+  title: 'Home',
   type: 'document',
   fields: [
     {
-      name: 'page',
-      title: 'Page',
-      type: 'string'
-    },
-    {
-      name: 'title',
-      title: 'Title',
+      name: 'heading',
+      title: 'Heading',
       type: 'string'
     },
     {
@@ -50,8 +45,8 @@ export default {
 
   preview: {
     select: {
-      title: 'page',
-      subtitle: 'title',
+      title: 'heading',
+      subtitle: 'subHeading',
       media: 'mainImage'
     }
   }
