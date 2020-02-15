@@ -133,13 +133,12 @@ const IndexPage = ({ data }) => (
 
             <Section style={{ maxWidth: "640px", margin: "0 auto" }}>
                 <VideoContainer>
-                    <iframe src="https://player.vimeo.com/video/353074662" frameBorder="0" allow="autoplay; fullscreen" title="Wally Pankratz Racing School" allowFullScreen></iframe>
+                    <iframe src={data.sanityPage.video} frameBorder="0" allow="autoplay; fullscreen" title={data.sanityPage.videoTitle} allowFullScreen></iframe>
                 </VideoContainer>
-                <p><a href="https://vimeo.com/353074662">Wally Pankratz Racing School</a> from <a href="https://vimeo.com/kingmediaco">King Media Co</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
             </Section>
 
             <Section>
-                <h2 className="mt-8 mb-4 text-center text-3xl font-thin">Contact Us<br />(714) 749-4817</h2>
+                <h2 className="mt-8 mb-4 text-center text-3xl font-thin">Contact Us<br />{data.sanityPage.contactNumber}</h2>
                 <Contact />
             </Section>
         </div>
@@ -147,20 +146,23 @@ const IndexPage = ({ data }) => (
 )
 
 export const query = graphql`
-  query {
-    sanityPage(page: {eq: "Home Page"}, _rawBody: {}) {
-      title
-      subHeading
-      mainImage {
-        asset {
-          fixed(width: 300) {
-            ...GatsbySanityImageFixed
-          }
+    query {
+        sanityPage(page: {eq: "Home Page"}) {
+            title
+            subHeading
+            mainImage {
+                asset {
+                    fixed(width: 300) {
+                        ...GatsbySanityImageFixed
+                    }
+                }
+            }
+            _rawBody(resolveReferences: {maxDepth: 10})
+            video
+            videoTitle
+            contactNumber
         }
-      }
-      _rawBody(resolveReferences: {maxDepth: 10})
     }
-  }
 `
 
 export default IndexPage

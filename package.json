@@ -7,8 +7,8 @@
   "dependencies": {
     "@sanity/block-content-to-react": "^2.0.7",
     "babel-plugin-styled-components": "^1.10.7",
-    "gatsby": "^2.19.16",
-    "gatsby-image": "^2.2.40",
+    "gatsby": "^2.19.17",
+    "gatsby-image": "^2.2.41",
     "gatsby-plugin-manifest": "^2.2.41",
     "gatsby-plugin-netlify": "^2.1.32",
     "gatsby-plugin-offline": "^2.2.10",
@@ -44,7 +44,10 @@
     "start": "npm run develop",
     "serve": "gatsby serve -H 0.0.0.0",
     "prod": "npm run build && npm run serve",
-    "netlify": "netlify dev --live"
+    "netlify": "netlify dev --live",
+    "sanity": "cd pankratzraceschoolcom/ && sanity start",
+    "sanity-deploy": "cd pankratzraceschoolcom/ && sanity deploy --no-minify",
+    "sanity-graphql": "cd pankratzraceschoolcom/ && sanity graphql deploy"
   },
   "repository": {
     "type": "git",
