@@ -4,4 +4,30 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-// You can delete this file if you're not using it
+const path = require('path')
+
+exports.createPages = async ({ graphql, actions }) => {
+    const { createPage } = actions
+    const result = await graphql(`
+        query {
+            allSanityRacers {
+                edges {
+                    node {
+                        url {
+                            current
+                        }
+                    }
+                }
+            }
+        }
+    `)
+    result.data.allSanityRacers.edges.forEach(({ node }) => {
+        createPage({
+            path: `/racers/${node.url.current}`,
+            component: path.resolve('./src/templates/racer.js'),
+            context: {
+                slug: node.url.current
+            }
+        })
+    })
+}
