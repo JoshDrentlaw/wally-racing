@@ -27,6 +27,38 @@ const H1 = styled.h1`
     ${tw`w-full flex md:flex-row flex-col justify-between`}
 ` */
 
+const RacerListContainer = styled.div`
+    
+`
+
+const RacerList = styled.ul`
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+`
+
+const RacerListItem = styled.li`
+    &:not(:last-child) {
+        margin-bottom: 2em;
+    }
+`
+
+const A = styled(Link)`
+    color: black;
+
+    &:active, &:hover, &:visited, &:link {
+        color: black;
+        text-decoration: none;
+        text-align: center;
+    }
+`
+
+const Image = styled(Img)`
+`
+
 const RacersPage = ({ data }) => (
     <Layout>
         <SEO title="Racers | Wally Prankatz Racing School" keywords={[
@@ -51,18 +83,20 @@ const RacersPage = ({ data }) => (
         <div className="lg:w-4/5 mx-auto p-4">
             <Section>
                 <H1>School Racers</H1>
-                <div>
-                    <ul>
-                        {data.allSanityRacers.edges.map(({node}) => (
-                            <Link to={`/racers/${node.url.current}`} >
-                                <li>
-                                    <Img fixed={node.profile.racerImage.asset.fixed} alt={`${node.profile.racerName} profile picture`} />
-                                    <h2>{node.profile.racerName}</h2>
-                                </li>
-                            </Link>
+                <RacerListContainer>
+                    <RacerList>
+                        {data.allSanityRacers.edges.map(({node}, i) => (
+                            <RacerListItem key={i}>
+                                <A to={`/racers/${node.url.current}`} >
+                                    <div>
+                                        <Image fixed={node.profile.racerImage.asset.fixed} alt={`${node.profile.racerName} profile picture`} />
+                                        <h2 style={{fontWeight: 200}}>{node.profile.racerName}</h2>
+                                    </div>
+                                </A>
+                            </RacerListItem>
                         ))}
-                    </ul>
-                </div>
+                    </RacerList>
+                </RacerListContainer>
                 
             </Section>
         </div>
@@ -81,7 +115,7 @@ export const query = graphql`
                         racerName
                         racerImage {
                             asset {
-                                fixed(width: 200) {
+                                fixed(width: 200, height: 200) {
                                     ...GatsbySanityImageFixed
                                 }
                             }
