@@ -7,30 +7,38 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const Section = styled.section`
-    width: 40vw;
+    width: 90vw;
     margin: 3em auto 0;
-    display: grid;
-    grid: 50px 300px 50px / 300px auto;
-    grid-template-areas:
-        'header table'
-        'image table'
-        'about table';
-    grid-gap: 10px 30px;
-    
-    h2 {
-        grid-area: header;
-    }
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 
-    #image {
-        grid-area: image;
-    }
+    @media(min-width: 1024px) {
+        width: 40vw;
+        display: grid;
+        grid: 50px 300px 50px / 300px auto;
+        grid-template-areas:
+            'header table'
+            'image table'
+            'about table';
+        grid-gap: 10px 30px;
+        
+        h2 {
+            grid-area: header;
+        }
 
-    p {
-        grid-area: about;
-    }
+        #image {
+            grid-area: image;
+        }
 
-    #tables {
-        grid-area: table;
+        p {
+            grid-area: about;
+        }
+
+        #tables {
+            grid-area: table;
+        }
     }
 `
 
@@ -78,6 +86,8 @@ export default ({ data }) => {
             ]} />
             <Section>
                 <h2>{racer.profile.racerName} / car name</h2>
+                <Img id="image" fixed={racer.profile.racerImage.asset.fixed} alt={`${racer.profile.racerName} profile picture`} />
+                <p>{racer.profile.about}</p>
                 <div id="tables">
                     {racer.races.map((track, i) => (
                         <Track key={i}>
@@ -98,8 +108,6 @@ export default ({ data }) => {
                         </Track>
                     ))}
                 </div>
-                <Img id="image" fixed={racer.profile.racerImage.asset.fixed} alt={`${racer.profile.racerName} profile picture`} />
-                <p>{racer.profile.about}</p>
             </Section>
         </Layout>
     )
