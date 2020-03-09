@@ -47,6 +47,7 @@ function Header({ data }) {
             <Img className="h-full ml-3" fixed={data.file.childImageSharp.fixed} />
             <Menu>
               <A to="/" activeClassName="active">Home</A>
+              <A to="/racers" activeClassName="">Racers</A>
             </Menu>
           </Wrapper>
         </Nav>

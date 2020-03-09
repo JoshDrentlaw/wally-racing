@@ -7,6 +7,10 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 // We import object and document schemas
 import blockContent from './blockContent'
 import home from './home'
+import racers from './racers'
+import racer from './racer'
+import tracks from './tracks'
+import race from './race'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -18,8 +22,12 @@ export default createSchema({
     // The following are document types which will appear
     // in the studio.
     home,
+    racers,
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
-    blockContent
+    blockContent,
+    tracks,
+    racer,
+    race
   ])
 })
