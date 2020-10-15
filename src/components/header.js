@@ -6,9 +6,10 @@ import styled from "styled-components"
 import tw from "tailwind.macro"
 
 const Nav = styled.nav`
-  ${tw`sticky z-10`}
+  position: sticky;
   top: 0;
   height: 60px;
+  z-index: 10;
 `
 
 const Wrapper = styled.div`
@@ -45,10 +46,10 @@ function Header({ data }) {
         <Nav>
           <Wrapper>
             <Img className="h-full ml-3" fixed={data.file.childImageSharp.fixed} />
-            <Menu>
+            {/* <Menu>
               <A to="/" activeClassName="active">Home</A>
               <A to="/racers" activeClassName="">Racers</A>
-            </Menu>
+            </Menu> */}
           </Wrapper>
         </Nav>
       )}
